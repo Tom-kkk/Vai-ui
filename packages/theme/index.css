@@ -1,0 +1,31 @@
+:root {
+  --vai-color-primary: #409eff;
+  --vai-color-success: #67c23a;
+  --vai-color-warning: #e6a23c;
+  --vai-color-danger: #f56c6c;
+  --vai-color-info: #909399;
+  --vai-color-primary-light-3: #79bbff;
+  --vai-color-primary-light-5: #a0cfff;
+  --vai-color-primary-light-7: #c6e2ff;
+  --vai-color-primary-light-9: #ecf5ff;
+  --vai-text-color-primary: #303133;
+  --vai-text-color-regular: #606266;
+  --vai-text-color-secondary: #909399;
+  --vai-text-color-placeholder: #a8abb2;
+  --vai-border-color: #dcdfe6;
+  --vai-border-color-light: #e4e7ed;
+  --vai-border-color-lighter: #ebeef5;
+  --vai-fill-color: #f0f2f5;
+  --vai-fill-color-light: #f5f7fa;
+  --vai-fill-color-blank: #ffffff;
+  --vai-disabled-text-color: #c0c4cc;
+  --vai-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+  --vai-text-color-primary: #e5eaf3;
+  --vai-text-color-regular: #cfd3dc;
+  --vai-border-color: #4c4d4f;
+  --vai-fill-color: #303030;
+  --vai-fill-color-blank: #141414;
+}
