@@ -17,6 +17,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
     "vite": "^6.3.5",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "vitepress-theme-demoblock": "^1.4.2"
   }
 }
