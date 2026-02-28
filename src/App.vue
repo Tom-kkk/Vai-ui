@@ -1,16 +1,15 @@
 <script setup>
-import { VaiButton } from '../packages/components';
+import { VaiAiChat, VaiButton, VaiDatePicker } from '../packages/components';
+
 
 </script>
 
 <template>
-  <div class="app">
-    <VaiButton type="primary" @click="() => alert('Clicked!')">Primary Button</VaiButton>
-    <VaiButton type="success" @click="() => alert('Clicked!')">Success Button</VaiButton>
-    <VaiButton disabled @click="() => alert('Clicked!')">Disabled Button</VaiButton>
-    <VaiButton loading @click="() => alert('Clicked!')">Loading Button</VaiButton>
+  <div>
+    <VaiButton>按钮</VaiButton>
+    <VaiDatePicker></VaiDatePicker>
+    <VaiAiChat></VaiAiChat>
   </div>
-
 </template>
 
 <style scoped>
