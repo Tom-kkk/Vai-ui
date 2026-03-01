@@ -6,12 +6,17 @@ import { vitepressDemoPlugin } from "vitepress-demo-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// 强制解析 vue，避免 packages/components 中的 .vue 文件无法找到 vue
+const vuePath = join(__dirname, "../../node_modules/vue");
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   ignoreDeadLinks: true,
   vite: {
     resolve: {
       alias: {
+        // 确保 vue 能被正确解析（monorepo 构建时 packages 中的组件需要）
+        vue: vuePath,
         // vitepress-demo-plugin 在 client 打包时会引用 path/fs，需提供浏览器兼容
         path: "path-browserify",
         fs: join(__dirname, "fs-stub.js"),
