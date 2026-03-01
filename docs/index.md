@@ -6,7 +6,7 @@ hero:
   text: "AI 专属组件库"
   tagline: 类似 Ant Design X 的 AI 驱动企业级组件库
   image:
-    src: /logo.png
+    src: /logo.jpg
     alt: Vue3 AI UI
   actions:
     - theme: brand

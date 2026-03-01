@@ -9,7 +9,7 @@ export default defineConfig({
 
   head: [
     // 替换浏览器标签页图标
-    ["link", { rel: "icon", href: "/../logo.png" }],
+    ["link", { rel: "icon", href: "/../logo.jpg" }],
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
