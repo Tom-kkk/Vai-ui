@@ -45,10 +45,12 @@ export default defineConfig({
   description: "AI 专属组件库 - 类似 Ant Design X 的 AI 驱动企业级组件库",
 
   head: [
-    // 替换浏览器标签页图标
-    ["link", { rel: "icon", href: "/../logo.jpg" }],
+    // 浏览器标签页图标（需放在 docs/public/ 下）
+    ["link", { rel: "icon", href: "/logo.jpg" }],
   ],
   themeConfig: {
+    // 导航栏 logo（显示在 header 左侧）
+    logo: "/logo.jpg",
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "/" },
