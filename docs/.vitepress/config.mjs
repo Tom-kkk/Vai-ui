@@ -1,9 +1,23 @@
 import { defineConfig } from "vitepress";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 
 import { vitepressDemoPlugin } from "vitepress-demo-plugin";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks: true,
+  vite: {
+    resolve: {
+      alias: {
+        // vitepress-demo-plugin 在 client 打包时会引用 path/fs，需提供浏览器兼容
+        path: "path-browserify",
+        fs: join(__dirname, "fs-stub.js"),
+      },
+    },
+  },
   title: "Vue3 AI UI",
   description: "AI 专属组件库 - 类似 Ant Design X 的 AI 驱动企业级组件库",
 
