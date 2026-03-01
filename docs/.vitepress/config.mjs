@@ -1,18 +1,33 @@
 import { defineConfig } from "vitepress";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { createRequire } from "node:module";
+import { existsSync } from "node:fs";
 
 import { vitepressDemoPlugin } from "vitepress-demo-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 
-// 强制解析 vue，避免 packages/components 中的 .vue 文件无法找到 vue
-const vuePath = join(__dirname, "../../node_modules/vue");
+// 使用 Node 模块解析定位 vue（兼容根目录或 docs 下的 node_modules）
+let vuePath;
+try {
+  vuePath = require.resolve("vue");
+} catch {
+  const candidates = [
+    join(__dirname, "../node_modules/vue"),
+    join(__dirname, "../../node_modules/vue"),
+  ];
+  vuePath = candidates.find((p) => existsSync(p)) || "vue";
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   ignoreDeadLinks: true,
   vite: {
+    ssr: {
+      noExternal: ["vue"],
+    },
     resolve: {
       alias: {
         // 确保 vue 能被正确解析（monorepo 构建时 packages 中的组件需要）
