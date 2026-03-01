@@ -9,16 +9,19 @@ import { vitepressDemoPlugin } from "vitepress-demo-plugin";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 
-// 使用 vue 包目录（非入口文件），以正确解析 vue/server-renderer 等子路径
+// vue 包目录与 server-renderer 子路径（用于正确解析，避免 vue/index.js/server-renderer）
 let vuePath;
+let vueServerRendererPath;
 try {
   vuePath = dirname(require.resolve("vue/package.json"));
+  vueServerRendererPath = require.resolve("vue/server-renderer");
 } catch {
   const candidates = [
     join(__dirname, "../node_modules/vue"),
     join(__dirname, "../../node_modules/vue"),
   ];
   vuePath = candidates.find((p) => existsSync(p)) || "vue";
+  vueServerRendererPath = "vue/server-renderer";
 }
 
 // https://vitepress.dev/reference/site-config
@@ -29,13 +32,13 @@ export default defineConfig({
       noExternal: ["vue"],
     },
     resolve: {
-      alias: {
-        // 确保 vue 能被正确解析（monorepo 构建时 packages 中的组件需要）
-        vue: vuePath,
-        // vitepress-demo-plugin 在 client 打包时会引用 path/fs，需提供浏览器兼容
-        path: "path-browserify",
-        fs: join(__dirname, "fs-stub.js"),
-      },
+      alias: [
+        // 子路径先匹配，否则会变成 vuePath + /server-renderer 而找不到文件
+        { find: "vue/server-renderer", replacement: vueServerRendererPath },
+        { find: "vue", replacement: vuePath },
+        { find: "path", replacement: "path-browserify" },
+        { find: "fs", replacement: join(__dirname, "fs-stub.js") },
+      ],
     },
   },
   title: "Vue3 AI UI",
