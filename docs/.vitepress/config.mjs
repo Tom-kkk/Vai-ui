@@ -9,10 +9,10 @@ import { vitepressDemoPlugin } from "vitepress-demo-plugin";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 
-// 使用 Node 模块解析定位 vue（兼容根目录或 docs 下的 node_modules）
+// 使用 vue 包目录（非入口文件），以正确解析 vue/server-renderer 等子路径
 let vuePath;
 try {
-  vuePath = require.resolve("vue");
+  vuePath = dirname(require.resolve("vue/package.json"));
 } catch {
   const candidates = [
     join(__dirname, "../node_modules/vue"),
