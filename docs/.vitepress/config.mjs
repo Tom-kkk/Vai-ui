@@ -46,7 +46,7 @@ export default defineConfig({
 
   head: [
     // 浏览器标签页图标（需放在 docs/public/ 下）
-    ["link", { rel: "icon", href: "/logo.jpg" }],
+    ["link", { rel: "icon", href: "/logo.png" }],
   ],
   themeConfig: {
     // 导航栏 logo（显示在 header 左侧）
@@ -111,9 +111,6 @@ export default defineConfig({
       },
     ],
 
-    footer: {
-      message: "基于 Vue 3.4+ 构建的 AI 专属组件库",
-    },
 
     search: {
       provider: "local",

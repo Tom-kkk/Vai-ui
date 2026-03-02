@@ -6,7 +6,7 @@ hero:
   text: "AI 专属组件库"
   tagline: 类似 Ant Design X 的 AI 驱动企业级组件库
   image:
-    src: /logo.jpg
+    src: /logo.png
     alt: Vue3 AI UI
   actions:
     - theme: brand
@@ -17,17 +17,17 @@ hero:
       link: /components
 
 features:
-  - title: 🤖 AI 专属组件
+  - title:  AI 专属组件
     details: 8个专为AI应用设计的组件，包括对话、思考过程、打字动画等，完美适配AI交互场景
-  - title: 📦 企业级基础组件
+  - title:  企业级基础组件
     details: 4个高质量基础组件，包括按钮、树形控件、日期选择器和页头组件，满足日常开发需求
-  - title: ⚡ 高级性能组件
+  - title:  高级性能组件
     details: 虚拟列表支持百万级数据渲染，极致性能优化，让大数据展示游刃有余
-  - title: 🎨 统一设计语言
+  - title:  统一设计语言
     details: 参考Ant Design X设计理念，提供完整的设计系统，确保视觉一致性和用户体验
-  - title: 🚀 开箱即用
+  - title:  开箱即用
     details: 基于Vue 3.4+开发，支持TypeScript，提供完整的文档和示例，快速集成到项目中
-  - title: 📱 响应式设计
+  - title:  响应式设计
     details: 完美适配各种设备和屏幕尺寸，确保在不同平台都有出色的展示效果
 ---
 <script setup>
