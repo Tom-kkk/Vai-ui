@@ -1,67 +1,53 @@
 # 快速开始
 
-快速开始使用 Vue3 AI UI 组件库。
+快速上手 Vai-ui 组件库。
 
-## 安装
-
-### 环境要求
+## 环境要求
 
 - Vue 3.4+
 - Node.js 16+
-- 现代浏览器
+- 现代浏览器（Chrome / Firefox / Safari / Edge）
 
-### 安装组件库
+## 安装
 
 ```bash
-# 使用 npm
-npm install vue3-ai-ui
+# npm
+npm install @tom1612/vai-ui
 
-# 使用 yarn
-yarn add vue3-ai-ui
+# yarn
+yarn add @tom1612/vai-ui
 
-# 使用 pnpm
-pnpm add vue3-ai-ui
+# pnpm
+pnpm add @tom1612/vai-ui
 ```
 
 ## 基础使用
 
-### 1. 完整引入
+### 全局注册
+
+在项目入口文件中一次性注册所有组件：
 
 ```javascript
 import { createApp } from 'vue'
-import Vue3AIUI from 'vue3-ai-ui'
-import 'vue3-ai-ui/dist/style.css'
+import VaiUi from '@tom1612/vai-ui'
+import '@tom1612/vai-ui/dist/index.css'
+import App from './App.vue'
 
-const app = createApp(App)
-app.use(Vue3AIUI)
-app.mount('#app')
+createApp(App).use(VaiUi).mount('#app')
 ```
 
-### 2. 按需引入
+### 按需引入
+
+只引入需要的组件，减少打包体积：
 
 ```javascript
-import { createApp } from 'vue'
-import { 
-  VaiAichat, 
-  VaiSkeleton, 
-  VaiTypingBubble,
-  VaiThinkProcess 
-} from 'vue3-ai-ui'
-import 'vue3-ai-ui/dist/style.css'
-
-const app = createApp(App)
-
-app.component('vai-aichat', VaiAichat)
-app.component('vai-skeleton', VaiSkeleton)
-app.component('vai-typing-bubble', VaiTypingBubble)
-app.component('vai-think-process', VaiThinkProcess)
-
-app.mount('#app')
+import { VaiBubble, VaiBubbleList, VaiSender } from '@tom1612/vai-ui'
+import '@tom1612/vai-ui/dist/index.css'
 ```
 
 ## 第一个示例
 
-下面是一个基于 **AI Chat** 组件的智能对话示例，可直接体验流式对话与 Markdown 展示。
+下面是一个基于 **VaiAiChat** 组件的智能对话示例，可直接体验流式对话与 Markdown 展示。
 
 <demo vue="../demos/aichat.vue" />
 
@@ -69,50 +55,55 @@ app.mount('#app')
 
 ### CSS 变量
 
-Vue3 AI UI 使用 CSS 变量来管理主题，你可以通过覆盖这些变量来定制主题：
+Vai-ui 使用 CSS 变量管理主题，可通过覆盖变量定制样式：
 
 ```css
 :root {
-  /* 主色调 */
-  --vai-primary-color: #1890ff;
-  --vai-success-color: #52c41a;
-  --vai-warning-color: #faad14;
-  --vai-error-color: #ff4d4f;
-  
-  /* 文本颜色 */
-  --vai-text-color: #333;
-  --vai-text-color-secondary: #666;
-  --vai-text-color-disabled: #999;
-  
-  /* 边框和背景 */
-  --vai-border-color: #d9d9d9;
-  --vai-background-color: #fff;
-  --vai-background-color-light: #fafafa;
-  
+  /* 品牌色 */
+  --vai-color-primary: #1677ff;
+  --vai-color-success: #52c41a;
+  --vai-color-warning: #faad14;
+  --vai-color-danger:  #ff4d4f;
+
+  /* 文本三级 */
+  --vai-text-color-primary:     #1a1a1a;
+  --vai-text-color-regular:     #333;
+  --vai-text-color-secondary:   #8c8c8c;
+  --vai-text-color-placeholder: #bfbfbf;
+
+  /* 边框 */
+  --vai-border-color:       #d9d9d9;
+  --vai-border-color-light: #e8e8e8;
+
   /* 圆角 */
-  --vai-border-radius: 6px;
-  --vai-border-radius-sm: 4px;
-  --vai-border-radius-lg: 8px;
-  
+  --vai-radius-sm: 4px;
+  --vai-radius-md: 6px;
+  --vai-radius-lg: 8px;
+
   /* 阴影 */
-  --vai-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  --vai-shadow-sm: 0 2px 4px rgba(0,0,0,0.12);
+  --vai-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 ```
 
 ### 暗色主题
 
 ```css
-:root[data-theme="dark"] {
-  --vai-text-color: #fff;
-  --vai-text-color-secondary: #ccc;
-  --vai-border-color: #434343;
-  --vai-background-color: #141414;
-  --vai-background-color-light: #1f1f1f;
+[data-theme="dark"] {
+  --vai-text-color-primary:   #f0f0f0;
+  --vai-text-color-secondary: #8c8c8c;
+  --vai-border-color:         #434343;
+  --vai-fill-color:           #1f1f1f;
+  --vai-fill-color-light:     #2a2a2a;
 }
+```
+
+切换暗色模式只需在 `<html>` 上添加属性：
+
+```javascript
+document.documentElement.setAttribute('data-theme', 'dark')
 ```
 
 ## 下一步
 
-- 查看 [组件列表](/components/) 了解所有可用组件
+- 查看 [组件总览](/components/) 了解全部 21 个组件
 - 在各组件文档中查看 **API** 表格了解属性与事件说明

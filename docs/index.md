@@ -2,105 +2,83 @@
 layout: home
 
 hero:
-  name: "Vue3 AI UI"
-  text: "AI 专属组件库"
-  tagline: 类似 Ant Design X 的 AI 驱动企业级组件库
+  name: "Vai-ui"
+  text: "Vue 3 AI 组件库"
+  tagline: 专为 AI 对话场景打造 · 21 个开箱即用的组件 · 快速构建智能对话界面
   image:
-    src: /logo.png
-    alt: Vue3 AI UI
+    src: /logo.jpg
+    alt: Vai-ui
   actions:
     - theme: brand
       text: 快速开始
       link: /guide/getting-started
     - theme: alt
       text: 组件列表
-      link: /components
+      link: /components/
 
 features:
-  - title:  AI 专属组件
-    details: 8个专为AI应用设计的组件，包括对话、思考过程、打字动画等，完美适配AI交互场景
-  - title:  企业级基础组件
-    details: 4个高质量基础组件，包括按钮、树形控件、日期选择器和页头组件，满足日常开发需求
-  - title:  高级性能组件
-    details: 虚拟列表支持百万级数据渲染，极致性能优化，让大数据展示游刃有余
-  - title:  统一设计语言
-    details: 参考Ant Design X设计理念，提供完整的设计系统，确保视觉一致性和用户体验
-  - title:  开箱即用
-    details: 基于Vue 3.4+开发，支持TypeScript，提供完整的文档和示例，快速集成到项目中
-  - title:  响应式设计
-    details: 完美适配各种设备和屏幕尺寸，确保在不同平台都有出色的展示效果
+  - icon: 🤖
+    title: AI 场景优先
+    details: 16 个专属 AI 组件，覆盖消息气泡、流式打字、思考过程、引用来源、会话列表等对话全流程，开箱即用。
+  - icon: 🎯
+    title: 完全受控
+    details: 所有状态由外部驱动，无内置请求逻辑，轻松对接 OpenAI、Claude、自建 LLM 等任意 AI 接口。
+  - icon: 🎨
+    title: 主题定制
+    details: 基于 CSS 变量的设计令牌体系，一键切换暗色模式，支持品牌色覆盖，满足企业级定制需求。
+  - icon: ⚡
+    title: 极致性能
+    details: 虚拟列表支持百万级数据渲染，流式消息增量更新，骨架屏与懒加载让 AI 等待体验丝滑流畅。
+  - icon: 📦
+    title: 开箱即用
+    details: 一行代码全局注册，ESM / CJS 双格式输出，支持按需引入，TypeScript 类型声明随包附带。
+  - icon: 🔌
+    title: Provider 配置
+    details: 通过 VaiProvider 统一管理语言（中 / 英）和主题，无需逐组件配置，全局一致。
 ---
+
 <script setup>
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  // 添加一些动态效果
   const hero = document.querySelector('.VPHero')
-  if (hero) {
-    hero.classList.add('animate-fade-in')
-  }
+  if (hero) hero.classList.add('vai-hero-animate')
 })
 </script>
 
 <style>
 .VPHero {
-  animation: fadeIn 1s ease-in-out;
+  animation: vaiFadeUp 0.7s ease both;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes vaiFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .VPFeature {
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .VPFeature:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .VPHero .name {
-  background: linear-gradient(120deg, #42d392 0%, #647eff 100%);
+  background: linear-gradient(135deg, #1677ff 0%, #722ed1 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.VPHero .text {
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-}
-
-.VPHero .tagline {
-  color: var(--vp-c-text-2);
-  font-size: 1.2em;
-  line-height: 1.5;
-}
-
 .VPButton {
   border-radius: 8px;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .VPButton:hover {
-  transform: scale(1.05);
-}
-
-.VPFeatures {
-  margin-top: 2rem;
-}
-
-.VPFeature h2 {
-  font-size: 1.2em;
-  margin-bottom: 0.5rem;
-  color: var(--vp-c-brand);
-}
-
-.VPFeature p {
-  color: var(--vp-c-text-2);
-  line-height: 1.6;
+  transform: scale(1.04);
 }
 </style>
