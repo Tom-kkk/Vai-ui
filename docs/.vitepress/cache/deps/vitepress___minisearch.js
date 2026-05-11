@@ -1,4 +1,6 @@
-// node_modules/minisearch/dist/es/index.js
+import "./chunk-B4Q33VKO.js";
+
+// ../node_modules/minisearch/dist/es/index.js
 var ENTRIES = "ENTRIES";
 var KEYS = "KEYS";
 var VALUES = "VALUES";

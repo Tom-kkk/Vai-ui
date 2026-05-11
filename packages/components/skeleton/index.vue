@@ -31,56 +31,52 @@ export default {
 <style scoped>
 .vai-skeleton {
   display: flex;
-  gap: 16px;
-  padding: 16px;
+  gap: 14px;
+  padding: 4px 0;
+  font-family: var(--vai-font-family);
 }
 
 .skeleton-avatar {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: skeleton-loading 1.5s ease-in-out infinite;
 }
-
-.skeleton-avatar-circle {
-  border-radius: 50%;
-}
-
-.skeleton-avatar-square {
-  border-radius: 4px;
-}
+.skeleton-avatar-circle { border-radius: 50%; }
+.skeleton-avatar-square { border-radius: var(--vai-radius-sm); }
 
 .skeleton-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .skeleton-title,
 .skeleton-row {
-  height: 16px;
-  margin-bottom: 12px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  border-radius: 4px;
-  animation: skeleton-loading 1.5s ease-in-out infinite;
+  height: 14px;
+  border-radius: var(--vai-radius-full);
 }
-
 .skeleton-title {
-  height: 20px;
-  margin-bottom: 16px;
+  height: 18px;
+  width: 40%;
 }
 
-.skeleton-row:last-child {
-  margin-bottom: 0;
+/* Shimmer animation using CSS custom property for color */
+.skeleton-title,
+.skeleton-row,
+.skeleton-avatar {
+  background: linear-gradient(
+    90deg,
+    var(--vai-fill-color) 0%,
+    var(--vai-border-color) 40%,
+    var(--vai-fill-color) 80%
+  );
+  background-size: 300% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
 }
 
-@keyframes skeleton-loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+@keyframes skeleton-shimmer {
+  0%   { background-position: 100% 50%; }
+  100% { background-position: -100% 50%; }
 }
 </style>

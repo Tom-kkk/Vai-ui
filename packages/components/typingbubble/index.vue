@@ -24,23 +24,25 @@ export default {
 .vai-typing-bubble {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: var(--vai-radius-xl);
+  background: var(--vai-gradient-primary);
   color: #fff;
-  font-size: 14px;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  font-size: var(--vai-font-size-base);
+  font-family: var(--vai-font-family);
+  box-shadow: var(--vai-shadow-primary-sm);
 }
 
 .bubble-secondary {
-  background: #f5f7fa;
-  color: var(--vai-text-color-regular);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: var(--vai-fill-color-light);
+  color: var(--vai-text-color-secondary);
+  border: 1px solid var(--vai-border-color);
+  box-shadow: var(--vai-shadow-xs);
 }
 
 .bubble-animated {
-  animation: bubble-float 2s ease-in-out infinite;
+  animation: bubble-float 2.4s ease-in-out infinite;
 }
 
 .typing-dots {
@@ -50,44 +52,37 @@ export default {
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background: currentColor;
   border-radius: 50%;
-  opacity: 0.6;
-  animation: dot-pulse 1.4s ease-in-out infinite;
+  animation: dot-wave 1.4s ease-in-out infinite;
 }
 
-.dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
+.dot:nth-child(2) { animation-delay: 0.16s; }
+.dot:nth-child(3) { animation-delay: 0.32s; }
 
 .typing-text {
+  font-size: var(--vai-font-size-sm);
   font-weight: 500;
   white-space: nowrap;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
 }
 
-@keyframes dot-pulse {
+@keyframes dot-wave {
   0%, 60%, 100% {
-    opacity: 0.3;
-    transform: scale(0.8);
+    transform: translateY(0);
+    opacity: 0.4;
   }
   30% {
+    transform: translateY(-5px);
     opacity: 1;
-    transform: scale(1);
   }
 }
 
 @keyframes bubble-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
 }
 </style>

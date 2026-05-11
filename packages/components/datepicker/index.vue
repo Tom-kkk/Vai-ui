@@ -107,96 +107,154 @@ export default {
       this.selectedDate = null
       this.$emit('update:modelValue', '')
       this.visible = false
-    }
-  },
-  mounted() {
-    document.addEventListener('click', (e) => {
+    },
+    _handleOutsideClick(e) {
       if (this.$refs.picker && !this.$refs.picker.contains(e.target)) {
         this.visible = false
       }
-    })
+    }
+  },
+  mounted() {
+    document.addEventListener('click', this._handleOutsideClick)
+  },
+  beforeUnmount() {
+    document.removeEventListener('click', this._handleOutsideClick)
   }
 }
 </script>
 
 <style scoped>
-.vai-datepicker { position: relative; display: inline-block; width: 220px; }
+.vai-datepicker {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+  font-family: var(--vai-font-family);
+}
 .input {
   width: 100%;
-  padding: 8px 12px;
-  font-size: 14px;
-  background: #fff;
-  border: 1px solid var(--vai-border-color);
-  border-radius: 4px;
+  padding: 9px 13px;
+  font-size: var(--vai-font-size-base);
+  font-family: var(--vai-font-family);
+  background: var(--vai-bg-base);
+  border: 1.5px solid var(--vai-border-color);
+  border-radius: var(--vai-radius-sm);
   cursor: pointer;
+  color: var(--vai-text-color-primary);
+  transition: var(--vai-transition-fast);
+  outline: none;
 }
+.input:hover { border-color: var(--vai-color-primary-light-3); }
+.input:focus { border-color: var(--vai-color-primary); box-shadow: 0 0 0 3px var(--vai-color-primary-light-1); }
 .panel {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   left: 0;
-  z-index: 2000;
-  width: 322px;
-  padding: 12px;
-  background: #fff;
-  border: 1px solid var(--vai-border-color-light);
-  border-radius: 4px;
-  box-shadow: var(--vai-box-shadow);
+  z-index: var(--vai-z-dropdown);
+  width: 300px;
+  padding: 14px;
+  background: var(--vai-bg-base);
+  border: 1px solid var(--vai-border-color);
+  border-radius: var(--vai-radius-lg);
+  box-shadow: var(--vai-shadow-lg);
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
   margin-bottom: 12px;
 }
 .header button {
-  padding: 0 8px;
-  font-size: 16px;
-  background: none;
-  border: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--vai-fill-color);
+  border: 1px solid var(--vai-border-color);
+  border-radius: var(--vai-radius-sm);
   cursor: pointer;
+  color: var(--vai-text-color-secondary);
+  transition: var(--vai-transition-fast);
 }
-.header span { flex: 1; text-align: center; font-size: 14px; font-weight: 500; }
+.header button:hover {
+  color: var(--vai-color-primary);
+  border-color: var(--vai-color-primary-light-3);
+  background: var(--vai-color-primary-light-1);
+}
+.header span {
+  flex: 1;
+  text-align: center;
+  font-size: var(--vai-font-size-base);
+  font-weight: 600;
+  color: var(--vai-text-color-primary);
+}
 .weekdays, .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
+  gap: 3px;
 }
-.weekdays { margin-bottom: 8px; }
+.weekdays { margin-bottom: 6px; }
 .weekdays span {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
-  font-size: 12px;
-  color: var(--vai-text-color-secondary);
+  height: 32px;
+  font-size: var(--vai-font-size-xs);
+  font-weight: 500;
+  color: var(--vai-text-color-tertiary);
 }
 .day {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
-  font-size: 14px;
+  height: 32px;
+  font-size: var(--vai-font-size-sm);
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: var(--vai-radius-sm);
+  color: var(--vai-text-color-primary);
+  transition: var(--vai-transition-fast);
 }
-.day:hover { color: var(--vai-color-primary); background: var(--vai-color-primary-light-9); }
-.day.today { color: var(--vai-color-primary); font-weight: 600; }
-.day.selected { color: #fff; background: var(--vai-color-primary); }
-.day.other { color: var(--vai-text-color-placeholder); }
+.day:hover {
+  color: var(--vai-color-primary);
+  background: var(--vai-color-primary-light-1);
+}
+.day.today {
+  color: var(--vai-color-primary);
+  font-weight: 700;
+  background: var(--vai-color-primary-light-1);
+}
+.day.selected {
+  color: #fff;
+  background: var(--vai-gradient-primary);
+  font-weight: 600;
+  box-shadow: var(--vai-shadow-primary-sm);
+}
+.day.other {
+  color: var(--vai-text-color-tertiary);
+}
 .footer {
   display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  margin-top: 12px;
-  border-top: 1px solid var(--vai-border-color-lighter);
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid var(--vai-border-color);
 }
 .footer button {
-  padding: 4px 8px;
-  font-size: 12px;
+  padding: 5px 12px;
+  font-size: var(--vai-font-size-sm);
+  font-family: var(--vai-font-family);
+  font-weight: 500;
   color: var(--vai-color-primary);
-  background: none;
-  border: none;
+  background: var(--vai-color-primary-light-1);
+  border: 1px solid var(--vai-color-primary-light-2);
+  border-radius: var(--vai-radius-sm);
   cursor: pointer;
+  transition: var(--vai-transition-fast);
+}
+.footer button:hover {
+  background: var(--vai-color-primary-light-2);
 }
 </style>

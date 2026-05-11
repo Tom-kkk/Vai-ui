@@ -71,6 +71,9 @@ export default defineConfig({
             text: "AI 专属组件",
             items: [
               { text: "AI Chat 对话组件", link: "/components/aichat" },
+              { text: "Bubble 消息气泡", link: "/components/bubble" },
+              { text: "BubbleList 消息列表", link: "/components/bubble-list" },
+              { text: "Sender 消息输入框", link: "/components/sender" },
               { text: "Skeleton 骨架屏", link: "/components/skeleton" },
               {
                 text: "TypingBubble 打字气泡",
@@ -87,6 +90,14 @@ export default defineConfig({
                 text: "CodeHighlighter 代码高亮",
                 link: "/components/codehighlighter",
               },
+              { text: "Actions 消息操作栏", link: "/components/actions" },
+              {
+                text: "Conversations 会话列表",
+                link: "/components/conversations",
+              },
+              { text: "Welcome 欢迎页", link: "/components/welcome" },
+              { text: "Sources 引用来源", link: "/components/sources" },
+              { text: "Provider 全局配置", link: "/components/provider" },
             ],
           },
           {

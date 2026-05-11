@@ -1,5 +1,10 @@
 import type { App, Plugin, DefineComponent } from 'vue'
 
+export const VaiActions: DefineComponent<any, any, any>
+export const VaiConversations: DefineComponent<any, any, any>
+export const VaiWelcome: DefineComponent<any, any, any>
+export const VaiSources: DefineComponent<any, any, any>
+export const VaiProvider: DefineComponent<any, any, any>
 export const VaiButton: DefineComponent<any, any, any>
 export const VaiTree: DefineComponent<any, any, any>
 export const VaiDatePicker: DefineComponent<any, any, any>

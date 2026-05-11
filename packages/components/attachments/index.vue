@@ -22,7 +22,7 @@
     
     <div class="attachments-actions">
       <button @click="selectFiles" class="action-btn" :disabled="disabled">
-        <span class="btn-icon">📎</span>
+        <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
         <span>{{ buttonText }}</span>
       </button>
       <div v-if="tip" class="action-tip">{{ tip }}</div>
@@ -122,34 +122,40 @@ export default {
 
 <style scoped>
 .vai-attachments {
-  padding: 12px;
+  padding: 10px;
   background: var(--vai-fill-color-light);
-  border-radius: 8px;
+  border: 1px solid var(--vai-border-color);
+  border-radius: var(--vai-radius-lg);
+  font-family: var(--vai-font-family);
 }
 
 .attachments-list {
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
 .attachment-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
-  background: #fff;
-  border: 1px solid var(--vai-border-color-lighter);
-  border-radius: 6px;
-  margin-bottom: 8px;
-  transition: all 0.3s;
+  gap: 10px;
+  padding: 9px 12px;
+  background: var(--vai-bg-base);
+  border: 1px solid var(--vai-border-color);
+  border-radius: var(--vai-radius-md);
+  transition: var(--vai-transition-fast);
 }
-
 .attachment-item:hover {
-  border-color: var(--vai-color-primary);
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+  border-color: var(--vai-color-primary-light-3);
+  box-shadow: var(--vai-shadow-xs);
 }
 
 .item-icon {
-  font-size: 24px;
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
 }
 
 .item-info {
@@ -158,7 +164,8 @@ export default {
 }
 
 .item-name {
-  font-size: 14px;
+  font-size: var(--vai-font-size-base);
+  font-weight: 500;
   color: var(--vai-text-color-primary);
   white-space: nowrap;
   overflow: hidden;
@@ -166,30 +173,30 @@ export default {
 }
 
 .item-size {
-  font-size: 12px;
-  color: var(--vai-text-color-secondary);
+  font-size: var(--vai-font-size-xs);
+  color: var(--vai-text-color-tertiary);
   margin-top: 2px;
 }
 
 .item-remove {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: var(--vai-text-color-placeholder);
+  font-size: 18px;
+  color: var(--vai-text-color-tertiary);
   background: none;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--vai-radius-sm);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: var(--vai-transition-fast);
+  line-height: 1;
 }
-
 .item-remove:hover {
   color: var(--vai-color-danger);
-  background: var(--vai-fill-color-light);
+  background: var(--vai-color-danger-bg);
 }
 
 .attachments-actions {
@@ -201,33 +208,35 @@ export default {
 .action-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   padding: 8px 16px;
-  font-size: 14px;
+  font-size: var(--vai-font-size-base);
+  font-family: var(--vai-font-family);
+  font-weight: 500;
   color: var(--vai-color-primary);
-  background: #fff;
-  border: 1px dashed var(--vai-color-primary);
-  border-radius: 6px;
+  background: var(--vai-bg-base);
+  border: 1.5px dashed var(--vai-color-primary-light-3);
+  border-radius: var(--vai-radius-md);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: var(--vai-transition-fast);
 }
-
 .action-btn:hover {
-  background: var(--vai-color-primary-light-9);
+  background: var(--vai-color-primary-light-1);
   border-color: var(--vai-color-primary);
+  border-style: solid;
 }
-
 .action-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .btn-icon {
-  font-size: 16px;
+  flex-shrink: 0;
+  opacity: 0.85;
 }
 
 .action-tip {
-  font-size: 12px;
-  color: var(--vai-text-color-secondary);
+  font-size: var(--vai-font-size-sm);
+  color: var(--vai-text-color-tertiary);
 }
 </style>

@@ -22,5 +22,9 @@ export default {
 </script>
 
 <style scoped>
-.vai-tree { font-size: 14px; color: var(--vai-text-color-regular); }
+.vai-tree {
+  font-size: var(--vai-font-size-base);
+  font-family: var(--vai-font-family);
+  color: var(--vai-text-color-regular);
+}
 </style>

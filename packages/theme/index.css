@@ -1,31 +1,164 @@
+/* ============================================
+   Vai-UI Design System — v2.0
+   Inspired by Ant Design 5 · Ant Design X (AI)
+   Color: Daybreak Blue palette · Neutral-first
+   ============================================ */
+
 :root {
-  --vai-color-primary: #409eff;
-  --vai-color-success: #67c23a;
-  --vai-color-warning: #e6a23c;
-  --vai-color-danger: #f56c6c;
-  --vai-color-info: #909399;
-  --vai-color-primary-light-3: #79bbff;
-  --vai-color-primary-light-5: #a0cfff;
-  --vai-color-primary-light-7: #c6e2ff;
-  --vai-color-primary-light-9: #ecf5ff;
-  --vai-text-color-primary: #303133;
-  --vai-text-color-regular: #606266;
-  --vai-text-color-secondary: #909399;
-  --vai-text-color-placeholder: #a8abb2;
-  --vai-border-color: #dcdfe6;
-  --vai-border-color-light: #e4e7ed;
-  --vai-border-color-lighter: #ebeef5;
-  --vai-fill-color: #f0f2f5;
-  --vai-fill-color-light: #f5f7fa;
-  --vai-fill-color-blank: #ffffff;
-  --vai-disabled-text-color: #c0c4cc;
-  --vai-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  /* ---- Brand / Primary (Ant Design Blue) ---- */
+  --vai-color-primary:           #1677ff;
+  --vai-color-primary-hover:     #4096ff;
+  --vai-color-primary-active:    #0958d9;
+  --vai-color-primary-light-1:   #e6f4ff;
+  --vai-color-primary-light-2:   #bae0ff;
+  --vai-color-primary-light-3:   #91caff;
+  --vai-color-primary-light-5:   #69b1ff;
+  --vai-color-primary-light-7:   #4096ff;
+  --vai-color-primary-light-9:   #1677ff;
+
+  /* ---- Semantic Colors (Ant Design tokens) ---- */
+  --vai-color-success:           #52c41a;
+  --vai-color-success-light:     #b7eb8f;
+  --vai-color-success-bg:        #f6ffed;
+  --vai-color-warning:           #faad14;
+  --vai-color-warning-light:     #ffe58f;
+  --vai-color-warning-bg:        #fffbe6;
+  --vai-color-danger:            #ff4d4f;
+  --vai-color-danger-light:      #ffa39e;
+  --vai-color-danger-bg:         #fff2f0;
+  --vai-color-info:              #722ed1;
+  --vai-color-info-light:        #efdbff;
+
+  /* ---- AI Brand Gradient (Ant Design X style) ---- */
+  --vai-gradient-primary:        linear-gradient(135deg, #1677ff 0%, #722ed1 100%);
+  --vai-gradient-primary-soft:   linear-gradient(135deg, rgba(22,119,255,0.06) 0%, rgba(114,46,209,0.06) 100%);
+  --vai-gradient-shine:          linear-gradient(135deg, #1677ff 0%, #722ed1 60%, #eb2f96 100%);
+
+  /* ---- Text Colors ---- */
+  --vai-text-color-primary:      #0f172a;
+  --vai-text-color-regular:      #334155;
+  --vai-text-color-secondary:    #64748b;
+  --vai-text-color-tertiary:     #94a3b8;
+  --vai-text-color-placeholder:  #cbd5e1;
+  --vai-text-color-disabled:     #cbd5e1;
+  --vai-text-color-inverse:      #ffffff;
+
+  /* ---- Surface / Fill Colors ---- */
+  --vai-bg-page:                 #f8fafc;
+  --vai-bg-base:                 #ffffff;
+  --vai-bg-overlay:              rgba(255, 255, 255, 0.85);
+  --vai-fill-color:              #f1f5f9;
+  --vai-fill-color-light:        #f8fafc;
+  --vai-fill-color-lighter:      #fafbfc;
+  --vai-fill-color-blank:        #ffffff;
+  --vai-fill-color-hover:        #f1f5f9;
+
+  /* ---- Border Colors ---- */
+  --vai-border-color:            #e2e8f0;
+  --vai-border-color-light:      #f1f5f9;
+  --vai-border-color-lighter:    #f8fafc;
+  --vai-border-color-extra:      #cbd5e1;
+
+  /* ---- Shadows ---- */
+  --vai-shadow-xs:               0 1px 2px rgba(0, 0, 0, 0.04);
+  --vai-shadow-sm:               0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --vai-shadow-md:               0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --vai-shadow-lg:               0 8px 32px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --vai-shadow-primary:          0 4px 14px rgba(22, 119, 255, 0.3);
+  --vai-shadow-primary-sm:       0 2px 8px rgba(22, 119, 255, 0.2);
+
+  /* ---- Border Radius ---- */
+  --vai-radius-xs:               4px;
+  --vai-radius-sm:               6px;
+  --vai-radius-md:               10px;
+  --vai-radius-lg:               14px;
+  --vai-radius-xl:               18px;
+  --vai-radius-2xl:              24px;
+  --vai-radius-full:             9999px;
+
+  /* ---- Spacing Scale (4px base) ---- */
+  --vai-spacing-1:               4px;
+  --vai-spacing-2:               8px;
+  --vai-spacing-3:               12px;
+  --vai-spacing-4:               16px;
+  --vai-spacing-5:               20px;
+  --vai-spacing-6:               24px;
+  --vai-spacing-8:               32px;
+  --vai-spacing-10:              40px;
+  --vai-spacing-12:              48px;
+
+  /* ---- Typography ---- */
+  --vai-font-family:             -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --vai-font-mono:               'JetBrains Mono', 'Fira Code', 'Monaco', 'Menlo', 'Courier New', monospace;
+  --vai-font-size-xs:            11px;
+  --vai-font-size-sm:            12px;
+  --vai-font-size-base:          14px;
+  --vai-font-size-md:            15px;
+  --vai-font-size-lg:            16px;
+  --vai-font-size-xl:            18px;
+  --vai-font-size-2xl:           20px;
+  --vai-font-size-3xl:           24px;
+  --vai-line-height-tight:       1.4;
+  --vai-line-height-base:        1.6;
+  --vai-line-height-relaxed:     1.8;
+
+  /* ---- Transition ---- */
+  --vai-transition-fast:         all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --vai-transition-base:         all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --vai-transition-slow:         all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Z-Index ---- */
+  --vai-z-base:                  1;
+  --vai-z-dropdown:              1000;
+  --vai-z-modal:                 2000;
+  --vai-z-tooltip:               3000;
 }
 
+/* ============================================
+   Dark Mode
+   ============================================ */
 [data-theme="dark"] {
-  --vai-text-color-primary: #e5eaf3;
-  --vai-text-color-regular: #cfd3dc;
-  --vai-border-color: #4c4d4f;
-  --vai-fill-color: #303030;
-  --vai-fill-color-blank: #141414;
+  --vai-color-primary:           #4096ff;
+  --vai-color-primary-hover:     #69b1ff;
+  --vai-color-primary-active:    #1677ff;
+  --vai-color-primary-light-1:   rgba(22, 119, 255, 0.15);
+  --vai-color-primary-light-2:   rgba(22, 119, 255, 0.2);
+  --vai-color-primary-light-3:   rgba(22, 119, 255, 0.3);
+
+  --vai-gradient-primary:        linear-gradient(135deg, #4096ff 0%, #9254de 100%);
+  --vai-gradient-primary-soft:   linear-gradient(135deg, rgba(64,150,255,0.12) 0%, rgba(146,84,222,0.12) 100%);
+
+  --vai-text-color-primary:      #f1f5f9;
+  --vai-text-color-regular:      #cbd5e1;
+  --vai-text-color-secondary:    #94a3b8;
+  --vai-text-color-tertiary:     #64748b;
+  --vai-text-color-placeholder:  #475569;
+  --vai-text-color-disabled:     #334155;
+
+  --vai-bg-page:                 #0b0f1a;
+  --vai-bg-base:                 #111827;
+  --vai-bg-overlay:              rgba(17, 24, 39, 0.9);
+  --vai-fill-color:              #1e293b;
+  --vai-fill-color-light:        #1a2332;
+  --vai-fill-color-lighter:      #16202e;
+  --vai-fill-color-blank:        #111827;
+  --vai-fill-color-hover:        #1e293b;
+
+  --vai-border-color:            #1e293b;
+  --vai-border-color-light:      #1a2332;
+  --vai-border-color-lighter:    #16202e;
+  --vai-border-color-extra:      #334155;
+
+  --vai-shadow-xs:               0 1px 2px rgba(0, 0, 0, 0.3);
+  --vai-shadow-sm:               0 2px 8px rgba(0, 0, 0, 0.3);
+  --vai-shadow-md:               0 4px 16px rgba(0, 0, 0, 0.4);
+  --vai-shadow-lg:               0 8px 32px rgba(0, 0, 0, 0.5);
+  --vai-shadow-primary:          0 4px 14px rgba(22, 119, 255, 0.25);
+}
+
+/* ============================================
+   Global Base Reset (scoped to vai components)
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
