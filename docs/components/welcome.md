@@ -4,9 +4,7 @@
 
 ## 基础用法
 
-:::demo
-welcome
-:::
+<demo vue="../demos/welcome.vue" />
 
 ## Props
 
